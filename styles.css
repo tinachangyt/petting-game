@@ -5,7 +5,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 	cursor: url(images/handCursor.png) 2 2, auto;
 }
 
-
+/*GENERAL STYLE STARTS*/
 body {
 	font-size:25px;
 	background: #b9ffff;
@@ -42,6 +42,36 @@ h4 {
 	font-size: calc(19px + (25 - 19) * ((100vw - 320px) / (1440 - 320)));
 }
 
+button, input {
+	outline: none;
+	border: none;
+}
+
+.animal-choice > *,
+.animal-choice > *:hover,
+.choice-selected, 
+.start-window, 
+.game-over__window {
+	border-radius: 30px;
+}
+
+.start-window, 
+.record-window, 
+.game-over__window {
+	background: #ff9735;
+}
+
+.animal-image,
+.extra-life,
+.game-over__window {
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+/*GENERAL STYLE ENDS*/
+
+
+
+/*START-WINDOW STYLE STARTS*/
 .animal-choice {
 	display: flex;
 	justify-content: center;
@@ -59,30 +89,6 @@ h4 {
 	border: 7px solid black;
 }
 
-.animal-choice > *,
-.animal-choice > *:hover,
-.choice-selected, 
-.start-window, 
-.game-over__window {
-	border-radius: 30px;
-}
-
-.start-window, 
-.info-window, 
-.game-over__window {
-	background: #ff9735;
-}
-
-.start-window {
-	width: 70vw;
-	height: 94vh;
-}
-
-.game-over__window {
-	width: 60vw;
-	height: 60vh;
-}
-
 .start-window,
 .game-over__window {
 	display: flex;
@@ -92,34 +98,34 @@ h4 {
 	padding: 2% 0% 2% 0%;
 }
 
+.start-window {
+	width: 70vw;
+	height: 94vh;
+}
+
 .start-window img {
 	width: 80%;
 }
 
-button, input[type= button] {
+.start-btn, input[type= button] {
 	background: white;
-	border: none;
 	font-size: 2.5rem;
 	width: 100%;
 	height: 70px;
 	transition: all 0.1s;
 }
 
-button:hover, input[type= button]:hover {
+.start-btn:hover, input[type= button]:hover {
 	font-size: 3rem;
 }
+/*START-WINDOW STYLE ENDS*/
 
-.animal-image,
-.multiplier,
-.extra-life,
-.game-over__window {
-	position: absolute;
-	transform: translate(-50%, -50%);
-}
 
-.info-window {
+
+/*GAME FEATURES STYLE STARTS*/
+.record-window {
+	display: none;
 	width: 195px;
-	display: block;
 	position: fixed;
 	top: -15px;
 	left: 10px;
@@ -130,18 +136,51 @@ button:hover, input[type= button]:hover {
 	border-radius: 15px;
 }
 
+.volume-btn {
+	display: none;
+	background: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 3.5rem;
+}
+
+.volume-btn > .fa {
+	position: absolute;
+	top: 25px;
+	left: -90px;
+}
+/*GAME FEATURES STYLE ENDS*/
+
+
+
+/*GAMEOVER-WINDOW STYLE STARTS*/
 .game-over__window {
+	display: none;
+	width: 60vw;
+	height: 60vh;
 	top: 50%;
 	left: 50%;
 	z-index: 10;
 	max-width: 700px;
 	font-size: calc(65px + (105 - 65) * ((100vw - 320px) / (1440 - 320)));
-	padding: 55px 0 20px 0;
+	padding: 85px 20px 0 20px;
 }
 
-.footer {
+.replay-btn {
+	position: absolute;
+	bottom: 10%;
+	left: 0;
+}
+/*GAMEOVER-WINDOW STYLE ENDS*/
+
+
+
+footer {
 	font-size: calc(14px + (17 - 14) * ((100vw - 320px) / (1440 - 320)));
 }
+
+
 
 @media (max-width: 900px) {
 	.start-window {
@@ -154,18 +193,24 @@ button:hover, input[type= button]:hover {
 		width:100%;
 	}
 	img {
-		width: 60px;
+		width: 75px;
 	}
 	.animal-choice > * {
 		padding:25px 0 10px 0;
 	}
-	.info-window {
+	.record-window {
 		left:-15px;
 	}
-	input.startAgainButton {
+	.volume-btn {
+		font-size: 2.5rem;
+	}
+	.volume-btn > .fa {
+		left: -50px;
+	}
+	input.replay-btn {
 		font-size: 2rem;
 	}
-	input.startAgainButton:hover {
+	input.replay-btn:hover {
 		font-size: 2.3rem;
 	}
 }
